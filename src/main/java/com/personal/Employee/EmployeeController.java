@@ -1,12 +1,12 @@
 package com.personal.Employee;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class EmployeeController {
+    Employee employee;
 
     private Employees employees;
 
@@ -14,19 +14,21 @@ public class EmployeeController {
         this.employees = employees;
     }
 
-
-
-    @GetMapping("/employee")
-    public Employee getEmployee(){
-        return new Employee("0001","opeoluwa","victor","victoro@yahoo.com","mr");
-    }
-
     @GetMapping("/employees")
-    public List<Employee> getEmployees(){
-        return employees.getEmployeeList();
+    public Employee getEmployee(//@RequestParam(name = "employee_id") String employee_id
+    ){
+        return employee;
+//       return new Employee("0001","opeoluwa","victor","victoro@yahoo.com","mr");
     }
-
-//    public Employee addEmployee(){
-//
+//    @GetMapping("/employees")
+//    public List<Employee> getEmployees(){
+//        return employees.getEmployeeList();
 //    }
+
+    @PostMapping("/employees")
+    public String addEmployee(@RequestBody Employee employee) {
+        // Add the new employee to the employees list (assuming Employees.getEmployeeList() returns a List<Employee>)
+        this.employee = employee;
+        return "Employee created successfully";
+    }
 }
