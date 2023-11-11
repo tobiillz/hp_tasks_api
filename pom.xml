@@ -22,9 +22,31 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+<!--		By default, it contains MockMVC and Junit 4 are included in spring-boot-starter-test dependency  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+<!--			Added an exclusion so that junit 4 is not used because we want o make use of junit 5-->
+			<exclusions>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!--	Below we add Junit 5 and Mockito core with values "test" as scope  -->
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
