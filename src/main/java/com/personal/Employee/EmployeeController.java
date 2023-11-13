@@ -14,16 +14,16 @@ public class EmployeeController {
         this.employees = employees;
     }
 
-    @GetMapping("/employees")
-    public Employee getEmployee(//@RequestParam(name = "employee_id") String employee_id
-    ){
-        return employee;
-//       return new Employee("0001","opeoluwa","victor","victoro@yahoo.com","mr");
-    }
 //    @GetMapping("/employees")
-//    public List<Employee> getEmployees(){
-//        return employees.getEmployeeList();
+//    public Employee getEmployee(//@RequestParam(name = "employee_id") String employee_id
+//    ){
+//        return employee;
+////       return new Employee("0001","opeoluwa","victor","victoro@yahoo.com","mr");
 //    }
+    @GetMapping("/employees")
+    public List<Employee> getEmployees(){
+        return employees.getEmployeeList();
+    }
 
     @PostMapping("/employees")
     public String addEmployee(@RequestBody Employee employee) {
